@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dendrograma circular de la clasificación científica de OpenAlex, realizado con RAWGraphs.">
+  <title>La estructura del conocimiento científico | OpenAlex</title>
+  <style>
+    :root { color-scheme: light; --ink:#1b2935; --muted:#586875; --line:#e1e7eb; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#f7f9fb; color:var(--ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { max-width:1100px; padding:clamp(18px,4vw,48px); margin:0 auto; }
+    header { margin-bottom:22px; }
+    .eyebrow { font-size:.82rem; letter-spacing:.09em; font-weight:700; text-transform:uppercase; color:#45667c; }
+    h1 { margin:.2em 0 .25em; font-size:clamp(1.7rem,3.7vw,2.65rem); line-height:1.17; }
+    .subtitle { color:var(--muted); margin:0; max-width:75ch; }
+    .panel { background:#fff; border:1px solid var(--line); border-radius:14px; padding:clamp(10px,2.4vw,26px); box-shadow:0 8px 22px rgba(22,42,58,.045); }
+    .chart { width:100%; height:auto; display:block; }
+    .legend { display:flex; flex-wrap:wrap; gap:12px 25px; padding:14px 3px 6px; margin:0; list-style:none; }
+    .legend li { display:flex; gap:9px; align-items:center; font-size:.91rem; }
+    .dot { width:13px; height:13px; border-radius:50%; display:inline-block; flex:none; }
+    .physical {background:#2ca02c} .life {background:#ff7f0e} .health {background:#1f77b4} .social {background:#d62728}
+    .detail { margin-top:20px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:start; }
+    .detail p {margin:0; color:var(--muted); font-size:.94rem;}
+    a {color:#075a8f; text-underline-offset:3px}
+    footer { margin-top:20px; color:var(--muted); font-size:.83rem; }
+    @media(max-width:650px) {.detail{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Visualización de datos · Dendrograma circular</div>
+    <h1>La estructura del conocimiento científico</h1>
+    <p class="subtitle">Representación jerárquica de la clasificación científica de OpenAlex: cuatro dominios, 26 campos y 252 registros de subcampos.</p>
+  </header>
+  <section class="panel" aria-label="Dendrograma circular de la clasificación científica de OpenAlex">
+    <img class="chart" src="dendrogram.svg" alt="Dendrograma circular de OpenAlex, organizado en cuatro dominios científicos identificados por color, sus campos y subcampos." width="1000" height="1000">
+    <ul class="legend" aria-label="Leyenda de colores">
+      <li><span class="dot physical" aria-hidden="true"></span>Physical Sciences</li>
+      <li><span class="dot life" aria-hidden="true"></span>Life Sciences</li>
+      <li><span class="dot health" aria-hidden="true"></span>Health Sciences</li>
+      <li><span class="dot social" aria-hidden="true"></span>Social Sciences</li>
+    </ul>
+  </section>
+  <div class="detail">
+    <p><strong>Cómo leerlo:</strong> cada conexión muestra una relación jerárquica entre dominio, campo y subcampo. Los colores distinguen dominios, pero los tamaños de los nodos no representan el número de publicaciones ni de temas. Algunas etiquetas se solapan por la densidad de categorías.</p>
+    <a href="dendrogram.svg" target="_blank" rel="noopener">Abrir SVG a tamaño completo ↗</a>
+  </div>
+  <footer>
+    Fuente: <a href="https://openalex.org/" target="_blank" rel="noopener">OpenAlex</a> · Visualización elaborada con <a href="https://www.rawgraphs.io/" target="_blank" rel="noopener">RAWGraphs</a> · Elaboración propia.
+  </footer>
+</main>
+</body>
+</html>
